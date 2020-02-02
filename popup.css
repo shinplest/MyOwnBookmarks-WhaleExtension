@@ -1,0 +1,108 @@
+body{
+    width: 500px;
+    height: 100px;
+    margin: 0;
+}
+
+h1{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+p{
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 5px 5px 5px 5px;
+    line-height: 100%;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style:none;
+}
+.pages{
+    float: left;
+    text-align: center;
+    width: 100px;
+    height: 110px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.pageWrap{
+    float: left;
+    text-align: center;
+    width: 100px;
+    height: 70px;
+    margin: 0px 0px 0px 0px;
+}
+
+.pageicons{
+    margin : 5px 5px 5px 5px;
+    width: 32px;
+    height: 32px;
+}
+
+
+.basicButtons{
+    font-family: 'Nanum Gothic', sans-serif;
+    background:#6DA0D9;
+    border-radius: 8px;
+    color: white;
+    border:none;
+    position:relative;
+    height:21px;
+    font-size:1.0em;
+    padding:0 1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  .basicButtons:hover{
+    background:#fff;
+    color:#6DA0D9;
+  }
+  .basicButtons:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #6DA0D9;
+    transition:400ms ease all;
+  }
+  .basicButtons:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .basicButtons:hover:before,.basicButtons:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
+
+
+#buttonBoxWrap{
+    position: relative;
+    /* background-color: #79AAD3; */
+    bottom: 5px;
+    height: 30px;
+    width: 100%;
+    text-align: right;
+}
+
+#factoryReset{
+    margin-right: 10px;
+}
+
+#title{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
