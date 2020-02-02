@@ -89,26 +89,29 @@ ul {
 
   
 #factoryReset{
-    background: black;
+    background: wheat;
 }
 
 #developerContact{
-    background: black;
+    background: wheat;
+    margin-right: 10px;
 }
-
-  
 
 
 #buttonBoxWrap{
     position: relative;
-    /* background-color: #79AAD3; */
     bottom: 5px;
     height: 30px;
     width: 100%;
     text-align: right;
+    float: left;
 }
 
 #title{
     margin-left: 20px;
     margin-bottom: 10px;
+}
+
+#delete{
+    margin-right: 10px;
 }
