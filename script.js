@@ -8,9 +8,9 @@ var gachonPages = [
     ["네이버", "https://www.naver.com/", "https://www.naver.com/favicon.ico?1"],
     ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
     ["유튜브", "https://www.youtube.com/", "https://s.ytimg.com/yts/img/favicon_32-vflOogEID.png"],
-    ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
-    ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
-  
+    ["다음", "https://www.daum.net/", "https://www.daum.net/favicon.ico"],
+    ["페이스북", "https://ko-kr.facebook.com/", "https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico"],
+    ["네이버 뉴스", "https://news.naver.com/", "https://ssl.pstatic.net/static.news/image/news/2014/favicon/favicon.ico"],
 ];//기본페이지들 
 
 //입력받은 페이지 이름과 주소를 저장한다. 
@@ -55,6 +55,9 @@ $(document).ready(function () {
     });
     $('#factoryReset').click(function () {
         factoryReset();
+    });
+    $('#developerContact').click(function () {
+        swal("Shinplest","건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
     });
 })
 
@@ -109,7 +112,8 @@ function createItem() {
 //페이지 삭제 관련함수
 function deletePage() {
     if (del == false) {
-        $('#delete').html("삭제 완료");
+        $('#delete').html("삭제 완료").css('background','red');
+
         //클릭 비활성화
         $('.pages').click(function () { return false });
         addAndRemoveDelButton();
@@ -241,7 +245,8 @@ function modifyPages() {
         $("#pageBoxWrap").sortable();
         $("#pageBoxWrap").sortable("option", "disabled", false); //다시 바꿀수 있게 하기 위한 코드
         $("#pageBoxWrap").disableSelection();
-        $('#modify').html('순서 변경 완료');
+        $('#modify').html('순서 변경 완료').css('background', 'red');
+
         swal("드래그 해서 순서를 변경하세요.")
         modify = true;
         //이동할수 있는 것을 표현해 주기 위한 애니메이션 코드 추가 예정
@@ -249,7 +254,6 @@ function modifyPages() {
     } else {
         modify = false;
         $("#pageBoxWrap").sortable("disable");
-        $('#modify').html('수정');
         swal("순서 변경", "완료되었습니다.", "success")
             .then((value) => {
                 location.reload();

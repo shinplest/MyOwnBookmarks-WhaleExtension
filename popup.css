@@ -47,7 +47,6 @@ ul {
     height: 32px;
 }
 
-
 .basicButtons{
     font-family: 'Nanum Gothic', sans-serif;
     background:#6DA0D9;
@@ -86,6 +85,17 @@ ul {
     width:100%;
     transition:800ms ease all;
   }
+
+
+  
+#factoryReset{
+    background: black;
+}
+
+#developerContact{
+    background: black;
+}
+
   
 
 
@@ -96,10 +106,6 @@ ul {
     height: 30px;
     width: 100%;
     text-align: right;
-}
-
-#factoryReset{
-    margin-right: 10px;
 }
 
 #title{
