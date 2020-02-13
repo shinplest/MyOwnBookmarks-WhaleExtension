@@ -47,7 +47,46 @@ ul {
     height: 32px;
 }
 
-.basicButtons{
+.leftButtons{
+    font-family: 'Nanum Gothic', sans-serif;
+    background:#CE848F;
+    border-radius: 8px;
+    color: white;
+    border:none;
+    position:relative;
+    height:21px;
+    font-size:1.0em;
+    padding:0 1em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  .leftButtons:hover{
+    background: white;
+    color:#CE848F;
+  }
+  .leftButtons:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #CE848F;
+    transition:400ms ease all;
+  }
+  .leftButtons:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .leftButtons:hover:before,.basicButtons:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+
+  .basicButtons{
     font-family: 'Nanum Gothic', sans-serif;
     background:#6DA0D9;
     border-radius: 8px;
@@ -87,14 +126,10 @@ ul {
   }
 
 
-  
-#factoryReset{
-    background: wheat;
-}
 
-#developerContact{
-    background: wheat;
-    margin-right: 10px;
+
+#btnDarkMode{
+    margin-right: 90px;
 }
 
 
