@@ -28,6 +28,41 @@ var Page = function (name, address, imgUrl) {
 //메인 jquery 스크립트
 $(document).ready(function () {
     Pages = [];
+    darkMode = null;
+
+   
+    chrome.storage.local.get('darkMode', function (result) {
+        darkMode = result.darkMode;
+        //정의되지 않았을경우
+        if(darkMode == undefined)
+        {
+            alert(result.darkMode);
+            darkMode = false;
+        }
+        //아닐경우 이전 값을 가져온다 
+        else
+            darkMode = result.darkMode;
+            console.log(darkMode);
+            if (drakMode) {
+                $('#body').css("background-color", "black");
+                $('p').css('color', "white");
+                $('h1').css('color', "white");
+        
+                swal("다-크 모드", "이게 요즘 트렌드라죠.");
+            }
+            else {
+                $('#body').css("background-color", "white");
+                $('p').css('color', "black");
+                $('h1').css('color', "black");
+        
+                swal("원-래 모드", "튜닝의 끝은 순정. ");
+            }
+        
+    });
+
+ 
+
+    
 
     //로컬저장소가 비어있을 경우 - 최초 실행시 한번만 가천배열을 어펜드 해줌. 
     if (localStorage.getItem("Pages") == null) {
@@ -58,25 +93,27 @@ $(document).ready(function () {
         factoryReset();
     });
     $('#developerContact').click(function () {
-        swal("Shinplest","건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
+        swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
     });
     $('#btnDarkMode').click(function () {
         drakMode = !drakMode;
-        if(drakMode){
+        //저장
+        chrome.storage.local.set({'darkMode': darkMode});
+        if (drakMode) {
             $('#body').css("background-color", "black");
-            $('p').css('color',"white");
-            $('h1').css('color',"white");
-    
+            $('p').css('color', "white");
+            $('h1').css('color', "white");
+
             swal("다-크 모드", "이게 요즘 트렌드라죠.");
         }
-        else{
+        else {
             $('#body').css("background-color", "white");
-            $('p').css('color',"black");
-            $('h1').css('color',"black");
+            $('p').css('color', "black");
+            $('h1').css('color', "black");
 
             swal("원-래 모드", "튜닝의 끝은 순정. ");
         }
-      
+
     });
 })
 
@@ -131,7 +168,7 @@ function createItem() {
 //페이지 삭제 관련함수
 function deletePage() {
     if (del == false) {
-        $('#delete').html("삭제 완료").css('background','red');
+        $('#delete').html("완료").css('background', 'red');
 
         //클릭 비활성화
         $('.pages').click(function () { return false });
@@ -189,6 +226,7 @@ function savePagesToLocalStorage() {
     }
     //로컬스토리지 초기화후 페이지 정보 저장 
     localStorage.clear();
+    //페이지 저장
     localStorage.setItem("Pages", JSON.stringify(Pages));
 }
 
@@ -200,7 +238,7 @@ function appendPages() {
             //호버 액션 현재 마우스 위치 배경색 바꿔줌
             .hover(
                 function () {
-                    if(drakMode){
+                    if (drakMode) {
                         $(this).css('backgroundColor', '#595959');
                     }
                     else
@@ -268,7 +306,7 @@ function modifyPages() {
         $("#pageBoxWrap").sortable();
         $("#pageBoxWrap").sortable("option", "disabled", false); //다시 바꿀수 있게 하기 위한 코드
         $("#pageBoxWrap").disableSelection();
-        $('#modify').html('순서 변경 완료').css('background', 'red');
+        $('#modify').html('변경 완료').css('background', 'red');
 
         swal("드래그 해서 순서를 변경하세요.")
         modify = true;
