@@ -1,14 +1,14 @@
-body{
+body {
     width: 500px;
     height: 100px;
     margin: 0;
 }
 
-h1{
+h1 {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-p{
+p {
     font-family: 'Nanum Gothic', sans-serif;
     margin: 5px 5px 5px 5px;
     line-height: 100%;
@@ -16,15 +16,16 @@ p{
     font-weight: 800;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
 ul {
-    list-style:none;
+    list-style: none;
 }
-.pages{
+
+.pages {
     float: left;
     text-align: center;
     width: 100px;
@@ -33,7 +34,7 @@ ul {
     padding: 0px 0px 0px 0px;
 }
 
-.pageWrap{
+.pageWrap {
     float: left;
     text-align: center;
     width: 100px;
@@ -41,99 +42,108 @@ ul {
     margin: 0px 0px 0px 0px;
 }
 
-.pageicons{
-    margin : 5px 5px 5px 5px;
+.pageicons {
+    margin: 5px 5px 5px 5px;
     width: 32px;
     height: 32px;
 }
 
-.leftButtons{
+.leftButtons {
     font-family: 'Nanum Gothic', sans-serif;
-    background:#CE848F;
-    border-radius: 8px;
-    color: white;
-    border:none;
-    position:relative;
-    height:21px;
-    font-size:1.0em;
-    padding:0 1em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
-  }
-  .leftButtons:hover{
-    background: white;
-    color:#CE848F;
-  }
-  .leftButtons:before,button:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
     background: #CE848F;
-    transition:400ms ease all;
-  }
-  .leftButtons:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  .leftButtons:hover:before,.basicButtons:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }
-
-  .basicButtons{
-    font-family: 'Nanum Gothic', sans-serif;
-    background:#6DA0D9;
     border-radius: 8px;
     color: white;
-    border:none;
-    position:relative;
-    height:21px;
-    font-size:1.0em;
-    padding:0 1em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
-  }
-  .basicButtons:hover{
-    background:#fff;
-    color:#6DA0D9;
-  }
-  .basicButtons:before,button:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: #6DA0D9;
-    transition:400ms ease all;
-  }
-  .basicButtons:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  .basicButtons:hover:before,.basicButtons:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }
-
-
-
-
-#btnDarkMode{
-    margin-right: 90px;
+    border: none;
+    position: relative;
+    height: 21px;
+    font-size: 1.1em;
+    padding: 0 1em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
 }
 
+.leftButtons:hover {
+    background: white;
+    color: #CE848F;
+}
 
-#buttonBoxWrap{
+.leftButtons:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #CE848F;
+    transition: 400ms ease all;
+}
+
+.leftButtons:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.leftButtons:hover:before,
+.leftButtons:hover:after {
+    width: 0%;
+    transition: 800ms ease all;
+}
+
+.basicButtons {
+    font-weight: 500;
+    font-family: 'Nanum Gothic', sans-serif;
+    background: #6DA0D9;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    position: relative;
+    height: 21px;
+    font-size: 1.1em;
+    padding: 0 1em;
+    cursor: pointer;
+    transition: 700ms ease all;
+    outline: none;
+}
+
+.basicButtons:hover {
+    background: #fff;
+    color: #6DA0D9;
+}
+
+.basicButtons:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #6DA0D9;
+    transition: 400ms ease all;
+}
+
+.basicButtons:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.basicButtons:hover:before,
+.basicButtons:hover:after {
+    width: 0%;
+    transition: 700ms ease all;
+}
+
+#btnDarkMode {
+    margin-right: 50px;
+}
+
+#buttonBoxWrap {
     position: relative;
     bottom: 5px;
     height: 30px;
@@ -142,11 +152,11 @@ ul {
     float: left;
 }
 
-#title{
+#title {
     margin-left: 20px;
     margin-bottom: 10px;
 }
 
-#delete{
+#delete {
     margin-right: 10px;
 }
