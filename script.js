@@ -4,6 +4,7 @@
 //전역변수
 var modify = false; //현재 북마크를 수정할수있는 상태인지 아닌지 판단하는 변수
 var del = false; //현재 북마크를 삭제하고 있는 상태인지 아닌지 판단하는 변수
+var drakMode = false;
 var gachonPages = [
     ["네이버", "https://www.naver.com/", "https://www.naver.com/favicon.ico?1"],
     ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
@@ -60,11 +61,22 @@ $(document).ready(function () {
         swal("Shinplest","건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
     });
     $('#btnDarkMode').click(function () {
-        $('#body').css("background-color", "black");
-        $('p').css('color',"white");
-        $('h1').css('color',"white");
+        drakMode = !drakMode;
+        if(drakMode){
+            $('#body').css("background-color", "black");
+            $('p').css('color',"white");
+            $('h1').css('color',"white");
+    
+            swal("다-크 모드", "이게 요즘 트렌드라죠.");
+        }
+        else{
+            $('#body').css("background-color", "white");
+            $('p').css('color',"black");
+            $('h1').css('color',"black");
 
-        swal("다-크 모드", "이게 요즘 트렌드라죠.");
+            swal("원-래 모드", "튜닝의 끝은 순정. ");
+        }
+      
     });
 })
 
@@ -188,7 +200,11 @@ function appendPages() {
             //호버 액션 현재 마우스 위치 배경색 바꿔줌
             .hover(
                 function () {
-                    $(this).css('backgroundColor', '#f9f9f5');
+                    if(drakMode){
+                        $(this).css('backgroundColor', '#595959');
+                    }
+                    else
+                        $(this).css('backgroundColor', '#f9f9f5');
                 },
                 function () {
                     $(this).css('background', 'none');
