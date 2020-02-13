@@ -4,7 +4,7 @@
 //전역변수
 var modify = false; //현재 북마크를 수정할수있는 상태인지 아닌지 판단하는 변수
 var del = false; //현재 북마크를 삭제하고 있는 상태인지 아닌지 판단하는 변수
-var drakMode = null;
+var darkMode = false; //다크테마 저장하는 변수 기본 false
 var gachonPages = [
     ["네이버", "https://www.naver.com/", "https://www.naver.com/favicon.ico?1"],
     ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
@@ -28,23 +28,19 @@ var Page = function (name, address, imgUrl) {
 //메인 jquery 스크립트
 $(document).ready(function () {
     Pages = [];
-    darkMode = null;
 
-
+    //이전 실행시 저장된 darkMode변수를 가져옴
     chrome.storage.local.get('darkMode', function (result) {
         darkMode = result.darkMode;
         //정의되지 않았을경우
-        if (darkMode == undefined) {
-            alert(result.darkMode);
+        if (darkMode == null) {
             darkMode = false;
         }
         //아닐경우 이전 값을 가져온다 
         else {
             darkMode = result.darkMode;
-            console.log(darkMode);
-
+            console.log("first"+darkMode);
             if (darkMode) {
-                console.log("inside" + darkMode);
                 $('#body').css("background-color", "black");
                 $('p').css('color', "white");
                 $('h1').css('color', "white");
@@ -100,9 +96,13 @@ $(document).ready(function () {
         swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
     });
     $('#btnDarkMode').click(function () {
-        drakMode = !drakMode;
+        console.log("onclick"+darkMode);
+        darkMode = !darkMode;
 
-        if (drakMode) {
+        console.log("onclickchange"+darkMode);
+
+
+        if (darkMode == true) {
             $('#body').css("background-color", "black");
             $('p').css('color', "white");
             $('h1').css('color', "white");
@@ -244,7 +244,7 @@ function appendPages() {
             //호버 액션 현재 마우스 위치 배경색 바꿔줌
             .hover(
                 function () {
-                    if (drakMode) {
+                    if (darkMode) {
                         $(this).css('backgroundColor', '#595959');
                     }
                     else
