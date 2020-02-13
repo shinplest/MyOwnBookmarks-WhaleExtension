@@ -4,7 +4,7 @@
 //전역변수
 var modify = false; //현재 북마크를 수정할수있는 상태인지 아닌지 판단하는 변수
 var del = false; //현재 북마크를 삭제하고 있는 상태인지 아닌지 판단하는 변수
-var drakMode = false;
+var drakMode = null;
 var gachonPages = [
     ["네이버", "https://www.naver.com/", "https://www.naver.com/favicon.ico?1"],
     ["구글", "https://www.google.co.kr/", "https://www.google.co.kr/favicon.ico"],
@@ -30,39 +30,40 @@ $(document).ready(function () {
     Pages = [];
     darkMode = null;
 
-   
+
     chrome.storage.local.get('darkMode', function (result) {
         darkMode = result.darkMode;
         //정의되지 않았을경우
-        if(darkMode == undefined)
-        {
+        if (darkMode == undefined) {
             alert(result.darkMode);
             darkMode = false;
         }
         //아닐경우 이전 값을 가져온다 
-        else
+        else {
             darkMode = result.darkMode;
             console.log(darkMode);
-            if (drakMode) {
+
+            if (darkMode) {
+                console.log("inside" + darkMode);
                 $('#body').css("background-color", "black");
                 $('p').css('color', "white");
                 $('h1').css('color', "white");
-        
-                swal("다-크 모드", "이게 요즘 트렌드라죠.");
+
             }
-            else {
+            else if (!darkMode) {
+                console.log("inside!" + darkMode);
                 $('#body').css("background-color", "white");
                 $('p').css('color', "black");
                 $('h1').css('color', "black");
-        
-                swal("원-래 모드", "튜닝의 끝은 순정. ");
+
             }
-        
+
+        }
+       
     });
 
- 
 
-    
+
 
     //로컬저장소가 비어있을 경우 - 최초 실행시 한번만 가천배열을 어펜드 해줌. 
     if (localStorage.getItem("Pages") == null) {
@@ -78,6 +79,9 @@ $(document).ready(function () {
     appendPages();
     //읽어온 페이지에 대체 그림 넣어줌
     replaceImage();
+
+
+    //버튼 누를때 이벤트 처리
     $('#modify').click(function () {
         modifyPages();
         savePagesToLocalStorage();
@@ -97,12 +101,14 @@ $(document).ready(function () {
     });
     $('#btnDarkMode').click(function () {
         drakMode = !drakMode;
-        //저장
-        chrome.storage.local.set({'darkMode': darkMode});
+
         if (drakMode) {
             $('#body').css("background-color", "black");
             $('p').css('color', "white");
             $('h1').css('color', "white");
+            $('#btnDarkMode').html('원래 모드');
+            console.log("save" + darkMode);
+            chrome.storage.local.set({ 'darkMode': true });
 
             swal("다-크 모드", "이게 요즘 트렌드라죠.");
         }
@@ -110,7 +116,7 @@ $(document).ready(function () {
             $('#body').css("background-color", "white");
             $('p').css('color', "black");
             $('h1').css('color', "black");
-
+            chrome.storage.local.set({ 'darkMode': false });
             swal("원-래 모드", "튜닝의 끝은 순정. ");
         }
 
