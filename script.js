@@ -12,25 +12,25 @@ var gachonPages = [
     ["다음", "https://www.daum.net/", "https://www.daum.net/favicon.ico"],
     ["페이스북", "https://ko-kr.facebook.com/", "https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico"],
     ["네이버 뉴스", "https://news.naver.com/", "https://ssl.pstatic.net/static.news/image/news/2014/favicon/favicon.ico"],
-];//기본페이지들 
+]; //기본페이지들 
 
 //입력받은 페이지 이름과 주소를 저장한다. 
 var inputAddress = "https://www.naver.com/";
 var inputName = null;
 
 //페이지 객체 생성자
-var Page = function (name, address, imgUrl) {
+var Page = function(name, address, imgUrl) {
     this.name = name;
     this.address = address;
     this.imgUrl = imgUrl;
 }
 
 //메인 jquery 스크립트
-$(document).ready(function () {
+$(document).ready(function() {
     Pages = [];
 
     //이전 실행시 저장된 darkMode변수를 가져옴
-    chrome.storage.local.get('darkMode', function (result) {
+    chrome.storage.local.get('darkMode', function(result) {
         darkMode = result.darkMode;
         //정의되지 않았을경우
         if (darkMode == null) {
@@ -39,26 +39,22 @@ $(document).ready(function () {
         //아닐경우 이전 값을 가져온다 
         else {
             darkMode = result.darkMode;
-            console.log("first"+darkMode);
             if (darkMode) {
                 $('#body').css("background-color", "black");
                 $('p').css('color', "white");
                 $('h1').css('color', "white");
-
-            }
-            else if (!darkMode) {
+                $('#btnDarkMode').html('원래 모드');
+            } else if (!darkMode) {
                 console.log("inside!" + darkMode);
                 $('#body').css("background-color", "white");
                 $('p').css('color', "black");
                 $('h1').css('color', "black");
-
+                $('#btnDarkMode').html('다크 모드');
             }
 
         }
-       
+
     });
-
-
 
 
     //로컬저장소가 비어있을 경우 - 최초 실행시 한번만 가천배열을 어펜드 해줌. 
@@ -78,28 +74,28 @@ $(document).ready(function () {
 
 
     //버튼 누를때 이벤트 처리
-    $('#modify').click(function () {
+    $('#modify').click(function() {
         modifyPages();
         savePagesToLocalStorage();
     });
     //추가 버튼 눌렀을 때
-    $('#add').click(function () {
+    $('#add').click(function() {
         createItem();
     });
-    $('#delete').click(function () {
+    $('#delete').click(function() {
         deletePage();
     });
-    $('#factoryReset').click(function () {
+    $('#factoryReset').click(function() {
         factoryReset();
     });
-    $('#developerContact').click(function () {
+    $('#developerContact').click(function() {
         swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
     });
-    $('#btnDarkMode').click(function () {
-        console.log("onclick"+darkMode);
+    $('#btnDarkMode').click(function() {
+        console.log("onclick" + darkMode);
         darkMode = !darkMode;
 
-        console.log("onclickchange"+darkMode);
+        console.log("onclickchange" + darkMode);
 
 
         if (darkMode == true) {
@@ -111,11 +107,11 @@ $(document).ready(function () {
             chrome.storage.local.set({ 'darkMode': true });
 
             swal("다-크 모드", "이게 요즘 트렌드라죠.");
-        }
-        else {
+        } else {
             $('#body').css("background-color", "white");
             $('p').css('color', "black");
             $('h1').css('color', "black");
+            $('#btnDarkMode').html('다크 모드');
             chrome.storage.local.set({ 'darkMode': false });
             swal("원-래 모드", "튜닝의 끝은 순정. ");
         }
@@ -127,23 +123,23 @@ $(document).ready(function () {
 //페이지 아이콘 박스 생성
 function createBox(imgaddress) {
     var contents =
-        "<div class = 'pages'>"
-        + "<a href='#' target='_blank' class = 'pagesLink'>"
-        + "<div class = 'pageWrap'>"
-        + "<img src = '"
-        + imgaddress
-        + "'class = 'pageicons'>"
-        + "<p>"
-        + "</p>"
-        + "</div>"
-        + "</a>"
-        + "<div>";
+        "<div class = 'pages'>" +
+        "<a href='#' target='_blank' class = 'pagesLink'>" +
+        "<div class = 'pageWrap'>" +
+        "<img src = '" +
+        imgaddress +
+        "'class = 'pageicons'>" +
+        "<p>" +
+        "</p>" +
+        "</div>" +
+        "</a>" +
+        "<div>";
 
     return contents;
 }
 //추가했을 경우 실행되는 함수 
 function createItem() {
-    getTabData(function (tabdata) {
+    getTabData(function(tabdata) {
 
         //현재 웹페이지 주소를 디폴트로 가져옴. 
         inputAddress = prompt("추가할 웹페이지의 주소를 입력하세요.", tabdata.url);
@@ -177,13 +173,12 @@ function deletePage() {
         $('#delete').html("완료").css('background', 'red');
 
         //클릭 비활성화
-        $('.pages').click(function () { return false });
+        $('.pages').click(function() { return false });
         addAndRemoveDelButton();
         swal("이제 삭제하고 싶은 즐겨찾기를 누르세요. ");
         //삭제 이벤트
         del = true;
-    }
-    else {
+    } else {
         //클릭 재활성화
         //$('.pages').unbind('click');
         $('#delete').html("삭제");
@@ -195,12 +190,12 @@ function deletePage() {
 //삭제버튼을 생성하고 지우고 페이지 지우는 이벤트 처리
 function addAndRemoveDelButton() {
     //마우스 올릴시 삭제 버튼 추가
-    $('.pages').mouseenter(function () {
+    $('.pages').mouseenter(function() {
         var testbutton = "<button class = 'delButton'>삭제</button>";
         $(testbutton).appendTo($(this));
 
         //버튼을 누를시 삭제를 해준다
-        $('.delButton').click(function () {
+        $('.delButton').click(function() {
             $(this).parent().remove();
             //삭제 후 변경사항 저장. 
             savePagesToLocalStorage();
@@ -208,7 +203,7 @@ function addAndRemoveDelButton() {
         });
     });
     //마우스 나갈시 삭제버튼 제거
-    $('.pages').mouseleave(function () {
+    $('.pages').mouseleave(function() {
         $(this).find('.delButton').remove();
     });
 }
@@ -243,14 +238,13 @@ function appendPages() {
             .appendTo("#pageBoxWrap")
             //호버 액션 현재 마우스 위치 배경색 바꿔줌
             .hover(
-                function () {
+                function() {
                     if (darkMode) {
                         $(this).css('backgroundColor', '#595959');
-                    }
-                    else
+                    } else
                         $(this).css('backgroundColor', '#f9f9f5');
                 },
-                function () {
+                function() {
                     $(this).css('background', 'none');
                 }
             )
@@ -264,7 +258,7 @@ function appendPages() {
 function replaceImage() {
     var imgs = $('img');
     for (var i = 0; i < imgs.length; i++) {
-        imgs[i].onerror = function (e) {
+        imgs[i].onerror = function(e) {
             e.target.src = 'images/icon.png';
         };
     }
@@ -273,12 +267,12 @@ function replaceImage() {
 //초기화 해주는 함수
 function factoryReset() {
     swal({
-        title: "초기화 하시겠습니까?",
-        text: "새로 저장한 데이터가 모두 삭제됩니다!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
+            title: "초기화 하시겠습니까?",
+            text: "새로 저장한 데이터가 모두 삭제됩니다!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
         .then((willDelete) => {
             if (willDelete) {
                 localStorage.clear();
@@ -301,7 +295,7 @@ function appendGachonPages() {
 
 
 function getTabData(callback) {
-    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
         callback(tabs[0]);
     });
 }
