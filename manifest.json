@@ -1,18 +1,18 @@
 {
     "manifest_version": 2,
-    
+
     "name": "나만의 즐겨찾기",
     "version": "2.0",
-    "description": "이제 웨일에서도 즐겨찾기를 보기 쉽게 관리하세요! 버전 2.0 업데이트! 다크모드 추가! 디자인 개선",
-   
+    "description": "이제 웨일에서도 즐겨찾기를 보기 쉽게 관리하세요!",
+
     "browser_action": {
         "default_popup": "popup.html",
-        "default_icon": "images/icon.png" 
+        "default_icon": "images/icon.png"
     },
 
-    "permissions": [ 
+    "permissions": [
         "storage",
         "tabs",
         "chrome://favicon/"
     ]
-  }
+}

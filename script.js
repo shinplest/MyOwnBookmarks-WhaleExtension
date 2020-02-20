@@ -89,7 +89,7 @@ $(document).ready(function() {
         factoryReset();
     });
     $('#developerContact').click(function() {
-        swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shineceo97@naver.com\ngithub - github.com/shinplest");
+        swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shinplest@gmail.com\ngithub - github.com/shinplest");
     });
     $('#btnDarkMode').click(function() {
         console.log("onclick" + darkMode);
