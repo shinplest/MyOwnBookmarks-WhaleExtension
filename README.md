@@ -1,4 +1,4 @@
-# 나만의 즐겨찾기
+# 🔆나만의 즐겨찾기🔆
 <p align="left">
 <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/Licence-MIT-green"/></a>
 </p>                                                                                                                            
@@ -14,7 +14,7 @@
     click <a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm">here</a> to add this extension!
 </p>
 <p>
-<a href="https://chrome.google.com/webstore/detail/%ED%95%9C%EB%88%88%EC%97%90-%EA%B0%80%EC%B2%9C/hemcljngffhjcnnoakkiagebmbococnb">여기</a>를 눌러 크롬에 추가하세요!
+<a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm">여기</a>를 눌러 크롬에 추가하세요!
 </p>
 
 ## Library
