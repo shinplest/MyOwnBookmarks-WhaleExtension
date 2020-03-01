@@ -3,10 +3,17 @@
 <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/Licence-MIT-green"/></a>
 </p>                                                                                                                            
 <p align="left">
-웨일에서 즐겨찾기 관리를 보다 편하게 해주는 확장 프로그램입니다. 
+네이버 웨일 브라우저(데스크탑)에서 즐겨찾기 관리를 보다 편하게 해주는 확장 프로그램입니다. 
 </p>
 <p align="left">
-<img src="./SampleImages/sample.PNG" width = "90%">
+<img src="./SampleImages/download.PNG" width = "100%">
+</p>
+
+<p align="left">
+<img src="./SampleImages/darkmode.PNG" width = "100%">
+</p>
+<p align="left">
+<img src="./SampleImages/GeneralMode.PNG" width = "100%">
 </p>
 
 ## Download
@@ -14,7 +21,7 @@
     click <a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm">here</a> to add this extension!
 </p>
 <p>
-<a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm">여기</a>를 눌러 크롬에 추가하세요!
+<a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm">여기</a>를 눌러 웨일에 추가하세요!
 </p>
 
 ## Library
