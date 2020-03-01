@@ -6,14 +6,19 @@
 네이버 웨일 브라우저(데스크탑)에서 즐겨찾기 관리를 보다 편하게 해주는 확장 프로그램입니다. 
 </p>
 <p align="left">
-<img src="./SampleImages/download.PNG" width = "100%">
+<img src="./SampleImages/download.PNG" width = "80%">
 </p>
 
+<p>  </p>
+
 <p align="left">
-<img src="./SampleImages/DarkMode.PNG" width = "100%">
+<img src="./SampleImages/DarkMode.png" width = "80%">
 </p>
+
+<p>  </p>
+
 <p align="left">
-<img src="./SampleImages/GeneralMode.png" width = "100%">
+<img src="./SampleImages/GeneralMode.png" width = "80%">
 </p>
 
 ## Download
