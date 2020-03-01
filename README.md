@@ -9,6 +9,10 @@
 <img src="./SampleImages/download.PNG" width = "100%">
 </p>
 
+<p align="left">
+웨일스토어 다운로드 수 1000돌파!
+</p>
+
 <p>  </p>
 
 <p align="left">
