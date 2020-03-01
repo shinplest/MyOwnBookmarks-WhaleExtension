@@ -10,10 +10,10 @@
 </p>
 
 <p align="left">
-<img src="./SampleImages/darkmode.PNG" width = "100%">
+<img src="./SampleImages/DarkMode.PNG" width = "100%">
 </p>
 <p align="left">
-<img src="./SampleImages/GeneralMode.PNG" width = "100%">
+<img src="./SampleImages/GeneralMode.png" width = "100%">
 </p>
 
 ## Download
