@@ -144,6 +144,7 @@ button:after {
 }
 
 #buttonBoxWrap {
+    margin-top: 10px;
     position: relative;
     bottom: 5px;
     height: 30px;
