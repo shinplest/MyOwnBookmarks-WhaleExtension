@@ -76,6 +76,7 @@ $(document).ready(function() {
     //버튼 누를때 이벤트 처리
     $('#modify').click(function() {
         modifyPages();
+        renamePages();
         savePagesToLocalStorage();
     });
     //추가 버튼 눌렀을 때
@@ -205,6 +206,28 @@ function addAndRemoveDelButton() {
     //마우스 나갈시 삭제버튼 제거
     $('.pages').mouseleave(function() {
         $(this).find('.delButton').remove();
+    });
+}
+
+//이름 변경
+function renamePages() {
+    //마우스 올릴시 삭제 버튼 추가
+    $('.pages').mouseenter(function() {
+        var testbutton = "<button class = 'renameButton'>이름 변경</button>";
+        $(testbutton).appendTo($(this));
+
+        //버튼을 누를시 이름변경을 해준다
+        $('.renameButton').click(function() {
+            var inputName = prompt("추가할 페이지의 이름은?");
+            $(this).parent().find('p').html("hello");
+            //삭제 후 변경사항 저장. 
+            savePagesToLocalStorage();
+            swal("삭제", "완료되었습니다.", "success");
+        });
+    });
+    //마우스 나갈시 삭제버튼 제거
+    $('.pages').mouseleave(function() {
+        $(this).find('.renameButton').remove();
     });
 }
 
