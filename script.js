@@ -218,11 +218,10 @@ function renamePages() {
 
         //버튼을 누를시 이름변경을 해준다
         $('.renameButton').click(function() {
-            var inputName = prompt("추가할 페이지의 이름은?");
-            $(this).parent().find('p').html("hello");
+            var inputName = prompt("변경할 페이지 이름을 입력하세요");
+            $(this).parent().find('p').html(inputName);
             //삭제 후 변경사항 저장. 
             savePagesToLocalStorage();
-            swal("삭제", "완료되었습니다.", "success");
         });
     });
     //마우스 나갈시 삭제버튼 제거
