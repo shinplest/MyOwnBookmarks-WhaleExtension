@@ -29,6 +29,7 @@ var Page = function(name, address, imgUrl) {
 $(document).ready(function() {
     Pages = [];
 
+    showHelpPage();
     //이전 실행시 저장된 darkMode변수를 가져옴
     chrome.storage.local.get('darkMode', function(result) {
         darkMode = result.darkMode;
@@ -51,9 +52,7 @@ $(document).ready(function() {
                 $('h1').css('color', "black");
                 $('#btnDarkMode').html('다크 모드');
             }
-
         }
-
     });
 
 
@@ -120,6 +119,21 @@ $(document).ready(function() {
     });
 })
 
+
+/**
+ * Check whether first execute or not
+ * and show help page
+ */
+function showHelpPage() {
+    var isFirstExecute = true;
+    chrome.storage.local.get('isFirstExecute', function(result) {
+        isFirstExecute = result.isFirstExecute;
+        if (isFirstExecute == null) {
+            chrome.storage.local.set({ 'isFirstExecute': false });
+            chrome.tabs.create({ url: "https://github.com/shinplest/MyOwnBookmarks-WhaleExtension/wiki/%EB%82%98%EB%A7%8C%EC%9D%98-%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0-%EC%82%AC%EC%9A%A9%EB%B2%95", active: true });
+        }
+    });
+}
 
 //페이지 아이콘 박스 생성
 function createBox(imgaddress) {
