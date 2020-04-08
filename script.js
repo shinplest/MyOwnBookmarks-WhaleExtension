@@ -29,6 +29,12 @@ var Page = function(name, address, imgUrl) {
 $(document).ready(function() {
     Pages = [];
 
+    $('.popr').popr({
+        'speed': 200,
+        'mode': 'top'
+    });
+
+
     showHelpPage();
     //이전 실행시 저장된 darkMode변수를 가져옴
     chrome.storage.local.get('darkMode', function(result) {
