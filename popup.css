@@ -140,7 +140,7 @@ button:after {
 }
 
 #btnDarkMode {
-    margin-right: 51px;
+    margin-right: 70px;
 }
 
 #buttonBoxWrap {
@@ -191,9 +191,9 @@ http://www.tipue.com/popr
 }
 
 .popr-item {
-    font: 300 14px/1.7 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 70px;
     color: #333;
-    padding: 4px 29px 5px 29px;
+    padding: 4px 10px 4px 10px;
 }
 
 .popr-item:hover {

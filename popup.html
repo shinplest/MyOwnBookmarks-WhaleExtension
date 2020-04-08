@@ -9,21 +9,26 @@
 
 <body id="body">
     <h1 id="title">🔆나만의 즐겨찾기🔆</h1>
-    <br />
+    <br/>
     <div id="pageBoxWrap">
     </div>
 
     <div style="clear:both;"></div>
 
     <div id="buttonBoxWrap">
-        <div class="popr" class="leftButtons" data-id="demo">설정</div>
+        <button id="btnSetting" class="leftButtons" data-id="demo">설정</button>
         <div class="popr-box" data-box-id="demo">
-            <div class="popr-item">다크 모드</div>
-            <div class="popr-item">사용 방법</div>
-            <div class="popr-item">건의 사항</div>
+            <a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm" target="_blank">
+                <div class="popr-item">건의 사항</div>
+            </a>
+            <a href="https://store.whale.naver.com/detail/fgbmpabhnfaelaomcgjejamnjkmhdocm" target="_blank">
+                <div class="popr-item">사용 방법</div>
+            </a>
+            <a href="chrome://extensions/shortcuts" target="_blank">
+                <div class="popr-item">단축키 설정</div>
+            </a>
         </div>
         <button id="factoryReset" class="leftButtons">초기화</button>
-        <button id="developerContact" class="leftButtons">건의사항</button>
         <button id="btnDarkMode" class="leftButtons">다크 모드</button>
 
         <button id="add" class="basicButtons">추가</button>

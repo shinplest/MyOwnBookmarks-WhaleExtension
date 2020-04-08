@@ -29,14 +29,29 @@ var Page = function(name, address, imgUrl) {
 $(document).ready(function() {
     Pages = [];
 
-    $('.popr').popr({
-        'speed': 200,
-        'mode': 'top'
-    });
-
-
     showHelpPage();
-    //이전 실행시 저장된 darkMode변수를 가져옴
+    setBtnOnclick();
+    changeTheme();
+    //로컬저장소가 비어있을 경우 - 최초 실행시 한번만 가천배열을 어펜드 해줌. 
+    if (localStorage.getItem("Pages") == null) {
+        appendGachonPages();
+    }
+    //아닐 경우 전부 읽어와서 페이지에 저장
+    else {
+        Pages = JSON.parse(localStorage.getItem("Pages"));
+    }
+    //현재 배열을 제대로 읽어오는지 확인하는 코드
+    // console.log(Pages);
+    //읽어온 페이지 길이만큼 읽어주면서 하나씩 만들어서 어펜드. 
+    appendPages();
+    //읽어온 페이지에 대체 그림 넣어줌
+    replaceImage();
+})
+
+/**
+ * Change Theme from local save data
+ */
+function changeTheme() {
     chrome.storage.local.get('darkMode', function(result) {
         darkMode = result.darkMode;
         //정의되지 않았을경우
@@ -60,31 +75,18 @@ $(document).ready(function() {
             }
         }
     });
+}
 
-
-    //로컬저장소가 비어있을 경우 - 최초 실행시 한번만 가천배열을 어펜드 해줌. 
-    if (localStorage.getItem("Pages") == null) {
-        appendGachonPages();
-    }
-    //아닐 경우 전부 읽어와서 페이지에 저장
-    else {
-        Pages = JSON.parse(localStorage.getItem("Pages"));
-    }
-    //현재 배열을 제대로 읽어오는지 확인하는 코드
-    // console.log(Pages);
-    //읽어온 페이지 길이만큼 읽어주면서 하나씩 만들어서 어펜드. 
-    appendPages();
-    //읽어온 페이지에 대체 그림 넣어줌
-    replaceImage();
-
-
-    //버튼 누를때 이벤트 처리
+function setBtnOnclick() {
+    $('#btnSetting').popr({
+        'speed': 200,
+        'mode': 'top'
+    });
     $('#modify').click(function() {
         modifyPages();
         renamePages();
         savePagesToLocalStorage();
     });
-    //추가 버튼 눌렀을 때
     $('#add').click(function() {
         createItem();
     });
@@ -94,16 +96,8 @@ $(document).ready(function() {
     $('#factoryReset').click(function() {
         factoryReset();
     });
-    $('#developerContact').click(function() {
-        swal("Shinplest", "건의사항이나 버그를 메일로 주시면 \n빠른시일내로 고치겠습니다.\n\nemail - shinplest@gmail.com\ngithub - github.com/shinplest");
-    });
     $('#btnDarkMode').click(function() {
-        console.log("onclick" + darkMode);
         darkMode = !darkMode;
-
-        console.log("onclickchange" + darkMode);
-
-
         if (darkMode == true) {
             $('#body').css("background-color", "black");
             $('p').css('color', "white");
@@ -121,10 +115,8 @@ $(document).ready(function() {
             chrome.storage.local.set({ 'darkMode': false });
             swal("원-래 모드", "튜닝의 끝은 순정. ");
         }
-
     });
-})
-
+}
 
 /**
  * Check whether first execute or not
