@@ -50,7 +50,7 @@ ul {
 
 .leftButtons {
     font-family: 'Nanum Gothic', sans-serif;
-    background: #CE848F;
+    background: #DE9391;
     border-radius: 8px;
     color: white;
     border: none;
@@ -65,7 +65,7 @@ ul {
 
 .leftButtons:hover {
     background: white;
-    color: #CE848F;
+    color: #DE9391;
 }
 
 .leftButtons:before,
@@ -76,7 +76,7 @@ button:after {
     right: 0;
     height: 2px;
     width: 0;
-    background: #CE848F;
+    background: #DE9391;
     transition: 400ms ease all;
 }
 
@@ -96,7 +96,7 @@ button:after {
 .basicButtons {
     font-weight: 500;
     font-family: 'Nanum Gothic', sans-serif;
-    background: #6DA0D9;
+    background: #455B71;
     border-radius: 8px;
     color: white;
     border: none;
@@ -140,7 +140,7 @@ button:after {
 }
 
 #btnDarkMode {
-    margin-right: 70px;
+    margin-right: 73px;
 }
 
 #buttonBoxWrap {

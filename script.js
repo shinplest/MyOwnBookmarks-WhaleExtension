@@ -82,6 +82,13 @@ function setBtnOnclick() {
         'speed': 200,
         'mode': 'top'
     });
+
+    $('#btnSetting').click(function() {
+        $('#test').click(function() {
+            chrome.tabs.create({ url: "chrome://extensions/shortcuts", active: true });
+        });
+    });
+
     $('#modify').click(function() {
         modifyPages();
         renamePages();
@@ -128,7 +135,7 @@ function showHelpPage() {
         isFirstExecute = result.isFirstExecute;
         if (isFirstExecute == null) {
             chrome.storage.local.set({ 'isFirstExecute': false });
-            chrome.tabs.create({ url: "https://github.com/shinplest/MyOwnBookmarks-WhaleExtension/wiki/%EB%82%98%EB%A7%8C%EC%9D%98-%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0-%EC%82%AC%EC%9A%A9%EB%B2%95", active: true });
+            chrome.tabs.create({ url: "https://github.com/shinplest/MyOwnBookmarks-WhaleExtension/wiki/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%82%AC%ED%95%AD", active: true });
         }
     });
 }
