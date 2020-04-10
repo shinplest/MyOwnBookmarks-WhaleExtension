@@ -6,7 +6,7 @@
 네이버 웨일 브라우저(데스크탑)에서 즐겨찾기 관리를 보다 편하게 해주는 확장 프로그램입니다. 
 </p>
 <p align="left">
-<img src="./SampleImages/download_cnt.png" width = "100%">
+<img src="./SampleImages/download_cnt.png" width = "50%">
 </p>
 
 <p align="left">
