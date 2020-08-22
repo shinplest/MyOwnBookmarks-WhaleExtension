@@ -62,7 +62,7 @@ function changeTheme() {
         else {
             darkMode = result.darkMode;
             if (darkMode) {
-                $('#body').css("background-color", "black");
+                $('#body').css("background-color", "#232323");
                 $('p').css('color', "white");
                 $('h1').css('color', "white");
                 $('#btnDarkMode').html('원래 모드');
@@ -106,7 +106,7 @@ function setBtnOnclick() {
     $('#btnDarkMode').click(function() {
         darkMode = !darkMode;
         if (darkMode == true) {
-            $('#body').css("background-color", "black");
+            $('#body').css("background-color", "#232323");
             $('p').css('color', "white");
             $('h1').css('color', "white");
             $('#btnDarkMode').html('원래 모드');

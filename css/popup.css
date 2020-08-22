@@ -156,6 +156,7 @@ button:after {
 #title {
     margin-left: 20px;
     margin-bottom: 10px;
+    font-size: 21px;
 }
 
 #delete {
