@@ -1,4 +1,4 @@
-# 🔆나만의 즐겨찾기🔆
+# 🔆 나만의 즐겨찾기 🔆
 <p align="left">
 <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/Licence-MIT-green"/></a>
 </p>                                                                                                                            
