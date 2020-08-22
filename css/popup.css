@@ -1,5 +1,5 @@
 body {
-    width: 500px;
+    width: 450px;
     height: 100px;
     margin: 0;
 }
@@ -28,8 +28,8 @@ ul {
 .pages {
     float: left;
     text-align: center;
-    width: 100px;
-    height: 105px;
+    width: 90px;
+    height: 93px;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
 }
@@ -37,7 +37,7 @@ ul {
 .pageWrap {
     float: left;
     text-align: center;
-    width: 100px;
+    width: 90px;
     height: 70px;
     margin: 0px 0px 0px 0px;
 }
@@ -140,7 +140,7 @@ button:after {
 }
 
 #btnDarkMode {
-    margin-right: 73px;
+    margin-right: 33px;
 }
 
 #buttonBoxWrap {
@@ -156,7 +156,7 @@ button:after {
 #title {
     margin-left: 20px;
     margin-bottom: 10px;
-    font-size: 21px;
+    font-size: 21.5px;
 }
 
 #delete {
